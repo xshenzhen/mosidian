@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.sys.ContactUsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.sys.ContactUs">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="email" property="email" />
+        <result column="phone" property="phone" />
+        <result column="feedback_message" property="feedbackMessage" />
+        <result column="createdate" property="createdate" />
+        <result column="recordstatus" property="recordstatus" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, email, phone, feedback_message, createdate, recordstatus, status
+    </sql>
+    <select id="contsctUsList" resultType="com.example.demo.model.sys.ContactUs">
+        select  * from sys_contact_us  ${ew.customSqlSegment}
+    </select>
+
+</mapper>

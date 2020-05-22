@@ -18,4 +18,6 @@ import java.util.List;
 public interface MemberService extends IService<Member> {
 
     IPage<Member> listAndPage(Page<Member> page, String name);
+
+    String getMaxMemberNo();
 }

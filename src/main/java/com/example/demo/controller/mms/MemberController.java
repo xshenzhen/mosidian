@@ -76,20 +76,28 @@ public class MemberController extends BaseController {
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     @ResponseBody
     public Object update(@RequestParam(name = "name",required = false) String name,
-                         @RequestParam(name = "no",required = false) String no,
-                         @RequestParam(name = "id",required = false) String ids){
+                         @RequestParam(name = "email",required = false) String email,
+                         @RequestParam(name = "id",required = false) String ids,
+                         @RequestParam(name = "address",required = false) String address,
+                         @RequestParam(name = "tell",required = false) String tell){
         Member member=new Member();
-        member.setName(name);
-        member.setNo(no);
-        member.setRecordstatus(true);
         boolean flag ;
         if (StrUtil.isNotEmpty(ids)){
             int id = Convert.toInt(ids);
+            member.setName(name);
+            member.setBase1(email);
+            member.setRecordstatus(true);
             member.setId(id);
             member.setEditdate(new Date());
              flag = memberService.updateById(member);
         }else {
+            String maxMemberNo = memberService.getMaxMemberNo();
             member.setCreatedate(new Date());
+            member.setName(name);
+            member.setBase1(address);
+            member.setBase2(tell);
+            member.setRecordstatus(true);
+            member.setNo(maxMemberNo);
             flag = memberService.save(member);
         }
         if (flag){

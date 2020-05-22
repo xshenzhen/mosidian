@@ -14,6 +14,7 @@ public class Const {
     //Redis-Token
     public static final String SESSION_USER_TOKEN_KEY="userToken";
     public static final String SESSION_MEMBER_TOKEN_KEY="memberToken";
+    public static final String MEMBER_NO_PREFIX_NAME="MSIC";
     //uploadfiles路径
     public static final String PRODUCTFILE = "uploadfiles/product/";         //用户头像（每个作品集为一个文件夹）
     public static final String PRODUCTCATEGORY = "uploadfiles/productcategory/";         //用户头像（每个作品集为一个文件夹）

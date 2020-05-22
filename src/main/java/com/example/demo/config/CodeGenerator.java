@@ -39,7 +39,7 @@ public class CodeGenerator {
         sc.setCapitalMode(true);
         sc.setNaming(NamingStrategy.underline_to_camel);
         sc.setTablePrefix("sys_");
-        sc.setInclude("sys_permission");
+        sc.setInclude("sys_contact_us");
         sc.setSuperControllerClass("com.example.demo.controller.BaseController");
         sc.setEntityLombokModel(true);
         sc.setRestControllerStyle(true);

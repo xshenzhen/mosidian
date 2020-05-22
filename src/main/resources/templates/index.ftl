@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="/css/macroease.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/modules/layer/default/layer.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/modules/laydate/default/laydate.css"/>
+    <link rel="stylesheet" type="text/css" href="/layui/css/layui.css"/>
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1598462_5ceia8b6oj.css">
 </head>
 
@@ -795,23 +799,23 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="contact_form pt-65 text-center">
-                    <form id="contact-form" action="contact.php" method="post">
+                    <form id="message-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" name="Name" placeholder="姓名">
+                                <input type="text" name="name" placeholder="姓名">
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="Email" placeholder="邮箱">
+                                <input type="email" name="email" placeholder="邮箱">
                             </div>
                             <div class="col-md-12">
-                                <input type="text" name="Subject" placeholder="电话号码">
+                                <input type="text" name="phone" placeholder="电话号码">
                             </div>
                             <div class="col-md-12">
-                                <textarea name="message" cols="30" rows="10" placeholder="遇到的问题"></textarea>
+                                <textarea name="feedbackMessage" cols="30" rows="10" placeholder="遇到的问题"></textarea>
                             </div>
                             <p class="form-message"></p>
                             <div class="col-md-12">
-                                <button type="submit" class="button button-bg mt-10">立即提交</button>
+                                <button type="button" class="button button-bg mt-10 save">立即提交</button>
                             </div>
                         </div>
                     </form>
@@ -971,7 +975,7 @@
                 </div>
                 <div class="footer-widget-list pt-30">
                     <ul>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>用户开卡</a></li>
+                        <li><a id="register"><i class="fa fa-angle-right"></i>用户开卡</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>账号管理</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>充值付款</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>索取发票</a></li>
@@ -1045,10 +1049,27 @@
 <script src="js/dolphin.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
 <script src="./js/script.js"></script>
+<script src="/layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
     $(function () {
+        $("#register").click(function () {
+            dolphin.iframe("/register","会员注册","650px","500px")
+        })
 
+        $(".save").click(function () {
+            dolphin.post('/contactUs/update?id=' + "",
+                    $('#message-form').serialize(),
+                    function (result) {
+                        if (result.status == 1) {
+                            layer.msg("反馈成功", {icon: 1, time: 2000}, function () {
+                                parent.location.href = parent.location.href;
+                            })
+                        } else {
+                            dolphin.alert(result.info);
+                        }
+                    })
+        })
     })
 </script>
 </body>

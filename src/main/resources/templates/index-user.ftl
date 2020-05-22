@@ -115,17 +115,17 @@
                         </ul>
                     </li>
 
-                  <#--  <li>
-                        <a href="javascript:void(0)"><i class="iconfont iconicon-test" style="font-size:18px"></i>&nbsp个性化配置<i
+                   <li>
+                        <a href="javascript:void(0)"><i class="iconfont iconicon-test" style="font-size:18px"></i>&nbsp反馈<i
                                     class="iconfont iconicon-2"></i></a>
                         <ul>
 
                             <li>
-                                <a href="/role/list" target="modulecontent"><i
-                                            class="iconfont iconinsta360logo10"></i>企业文化</a>
+                                <a href="/contactUs/list" target="modulecontent"><i
+                                            class="iconfont iconinsta360logo10"></i>反馈列表</a>
                             </li>
                         </ul>
-                    </li>-->
+                    </li>
                 </ul>
             </div>
         </div>

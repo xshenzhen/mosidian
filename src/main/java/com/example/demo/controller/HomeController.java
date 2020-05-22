@@ -35,6 +35,13 @@ public class HomeController extends BaseController{
         return mv;
     }
 
+    @GetMapping("/register")
+    public ModelAndView register(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("register");
+        return mv;
+    }
+
     @GetMapping({"/meLogin","/bcLogin"})
     public ModelAndView meLogin(){
         ModelAndView mv=new ModelAndView();
