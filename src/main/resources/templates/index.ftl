@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1598462_5ceia8b6oj.css">
+    <link href="./layui/css/layui.css" rel="stylesheet"/>
+    <link href="./step-lay/step.css" rel="stylesheet">
 </head>
 
 <body>
@@ -302,7 +304,7 @@
                     </div>
                 </div>
                 <div class="page-btn">
-                    <a href="#" class="button button-bg">免费申请</a>
+                    <a id="becomeKH" data-method="becomeKH" data-type="auto" href="javascript:" class="button button-bg">免费申请</a>
                 </div>
             </div>
         </div>
@@ -1044,11 +1046,15 @@
 <script src="js/main.js"></script>
 <script src="js/dolphin.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js'></script>
-<script src="./js/script.js"></script>
+<script src="js/script.js"></script>
+<script src="layui/layui.js"></script>
+<script src="step-lay/step.js"></script>
 
 <script type="text/javascript">
     $(function () {
-
+        $('#becomeKH').on('click', function(){
+            dolphin.iframe('/sys/kh/register', '客户申请', "600px");
+        });
     })
 </script>
 </body>
