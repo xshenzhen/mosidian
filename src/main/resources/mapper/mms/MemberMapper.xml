@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mms.MemberMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.mms.Member">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="phone" property="phone" />
+        <result column="balance" property="balance" />
+        <result column="credits" property="credits" />
+        <result column="state" property="state" />
+        <result column="enable" property="enable" />
+        <result column="avatar" property="avatar" />
+        <result column="password" property="password" />
+        <result column="label" property="label" />
+        <result column="no" property="no" />
+        <result column="userid" property="userid" />
+        <result column="createdate" property="createdate" />
+        <result column="creater" property="creater" />
+        <result column="editdate" property="editdate" />
+        <result column="editor" property="editor" />
+        <result column="recordstatus" property="recordstatus" />
+        <result column="mid" property="mid" />
+        <result column="base1" property="base1" />
+        <result column="base2" property="base2" />
+        <result column="base3" property="base3" />
+        <result column="base4" property="base4" />
+        <result column="base5" property="base5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, phone, balance, credits, state, enable, avatar, password, label, no, userid, createdate, creater, editdate, editor, recordstatus, mid, base1, base2, base3, base4, base5
+    </sql>
+    <select id="memberList" resultType="com.example.demo.model.mms.Member">
+        select * from mms_member ${ew.customSqlSegment}
+    </select>
+
+</mapper>

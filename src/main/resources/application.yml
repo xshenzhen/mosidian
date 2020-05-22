@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mosidian?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2b8
+    username: root
+    password: admin
+  servlet:
+    multipart:
+      max-file-size: 100MB # 单个文件大小
+      max-request-size: 1000MB # 设置总上传的数据大小
+      enabled: true #开启
+server:
+  port: 8081
+  tomcat:
+    max-threads: 8192
+  servlet:
+    session:
+      timeout: 480m
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.sys.PermissionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.model.sys.Permission">
+        <id column="id" property="id" />
+        <result column="permission_uuid" property="permissionUuid" />
+        <result column="permission_name" property="permissionName" />
+        <result column="recordstatus" property="recordstatus" />
+        <result column="createdate" property="createdate" />
+        <result column="creater" property="creater" />
+        <result column="editdate" property="editdate" />
+        <result column="editor" property="editor" />
+        <result column="permission_desc" property="permissionDesc" />
+        <result column="permission_url" property="permissionUrl" />
+        <result column="parent_permission_uuid" property="parentPermissionUuid" />
+        <result column="sortno" property="sortno" />
+        <result column="is_visible" property="isVisible" />
+        <result column="permission_key" property="permissionKey" />
+        <result column="avatar" property="avatar" />
+        <result column="level" property="level" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, permission_uuid, permission_name, recordstatus, createdate, creater, editdate, editor, permission_desc, permission_url, parent_permission_uuid, sortno, is_visible, permission_key, avatar, level
+    </sql>
+    <select id="getPermissionList" resultType="com.example.demo.model.sys.PermissionList">
+          SELECT
+e.id,e.permission_uuid,e.permission_name,e.permission_url,e.permission_key,a.ID as userId
+FROM sys_user as a
+LEFT JOIN sys_role_user as b ON a.uuid=b.user_uuid
+LEFT JOIN sys_role as c on  b.role_uuid=c.role_uuid
+LEFT JOIN sys_role_permission as d ON c.role_uuid=d.role_uuid
+LEFT JOIN sys_permission as e on d.permission_uuid=e.permission_uuid
+  ${ew.customSqlSegment}
+    </select>
+
+</mapper>

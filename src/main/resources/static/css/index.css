@@ -1,0 +1,172 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color: darkgrey;
+	
+	
+}
+.conta{
+	width: 100%;
+	margin: auto;
+}
+.conta .conta-func{
+	width: 400px;
+	background-color: #FFFFFF;
+	
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 200px;
+	padding: 20px;
+}
+.conta .conta-func .conta-func-sa{
+	width: 360px;
+	font-size: 17px;
+	margin:auto;
+	position: relative;
+	height: 360px;
+}
+.lap{
+	margin-top: 10px;
+}
+.conta .conta-func .conta-func-sa .inputs{
+	border: 1px solid #A9A9A9;
+	border-radius: 3px;
+	margin-top: 10px;
+	
+}
+
+.rer{
+	padding:0 10px ;
+	height: 35px;
+	border: 1px solid #fff;
+	width: 300px;
+	outline: none; /*去除掉蓝色出现的蓝色边框*/
+}
+.cer{
+	position: absolute;
+	left: 320px;
+	top: 23px;
+	border: px solid;
+	width: 30px;
+	height: 20px;
+	
+	
+}
+.cer span{
+	display: block;
+	width: 15px;
+	margin-top: 16px;
+	margin-right: 20px;
+	font-size: 20px;
+	font-weight: 400;
+	color: darkgray;
+	cursor: pointer;
+}
+
+.cer1{
+	position: absolute;
+	left: 320px;
+	top: 115px;
+	border: px solid;
+	width: 30px;
+	height: 20px;
+	
+	
+}
+.cer1 span{
+	width: 15px;
+	margin-top: 3px;
+	font-weight: 400;
+	font-size: 20px;
+	color: darkgray;
+	cursor: pointer;
+}
+.butts .buttp{
+	width: 360px;
+	height: 40px;
+	background-color: #439aff;
+	color: #FFFFFF;
+	margin-top: 17px;
+	border-radius: 5px;
+	border:#FFFFFF;
+	outline: none;
+	cursor: pointer;
+}
+
+.ckbu{
+	width: 290px;
+	margin-top: 10px;
+}
+.ckbu .checkbox12{
+	font-size: 1rem;
+	float: left;
+	
+}
+
+.checkbox12-trr{
+	margin-top: 10px;
+}
+.checkbox12-trr a{
+	font-size: 0.81rem;
+	float: right;
+	text-decoration: none;
+	color: #000;
+}
+
+.gugr{
+	width: 200px;
+	height: 40px;
+	
+	margin-top: 30px;
+	
+}
+.gugr button{
+	width: 360px;
+	height: 40px;
+	color: #000000;
+	font-weight: 600;
+	background-color: transparent;
+	border: 1px solid #f2f2f2;
+	cursor: pointer; /*添加光标*/
+}
+.gugr button img{
+	vertical-align: middle;
+}
+a{
+	text-decoration: none;
+}
+.gugr button span{
+	padding: 12px;
+	font-size: 12px;
+	
+}
+.gugs{
+	width:290px;
+	
+	margin-top: 40px;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 800;
+}
+.gugs a{
+	color: #000000;
+	font-weight: 300;
+}
+.top-yio{
+	width: 450px;
+	margin: auto;
+	
+	text-align: center;
+	height: 30px;
+	line-height: 20px;
+	color: rgba(255, 255, 255, 0.4);
+}
+.top-yio a{
+	
+	margin-right: 10px;
+	color: rgba(255, 255, 255, 0.4);
+	pos-right: 10px;
+	text-align: center;
+}
