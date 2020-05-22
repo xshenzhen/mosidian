@@ -60,11 +60,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/**/*.css",
                         "/**/*.js",
                         "/swagger-resources/**",
-                        "/v2/api-docs/**"
+                        "/v2/api-docs/**",
+                        "/sys/kh/**"
                 )
                 .permitAll()
                 // 对登录注册要允许匿名访问
-                .antMatchers("/meLogin","/login", "/register","/api/*/*/*")
+                .antMatchers("/meLogin","/login", "/register","/api/*/*/*","/sys/kh/**")
                 .permitAll()
                 //跨域请求会先进行一次options请求
                 .antMatchers(HttpMethod.OPTIONS)

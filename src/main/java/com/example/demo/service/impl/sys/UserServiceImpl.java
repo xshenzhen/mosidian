@@ -1,14 +1,19 @@
 package com.example.demo.service.impl.sys;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.demo.common.security.CommonResult;
 import com.example.demo.common.security.JwtTokenUtil;
 import com.example.demo.dao.sys.UserMapper;
+import com.example.demo.model.mms.Member;
 import com.example.demo.model.sys.User;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.service.mms.MemberService;
 import com.example.demo.service.sys.UserService;
+import com.example.demo.utils.Const;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,11 +44,39 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private UserMapper userMapper;
     @Autowired
+    private MemberService memberService;
+    @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Value("${jwt.tokenHead}")
     private String tokenHead;
+
+    @Override
+    public int register(String userNo, String password, String memo) {
+
+
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("no", userNo);
+        Member member = memberService.getOne(queryWrapper);
+        if (!ObjectUtil.isNotNull(member)) {
+            return 2;
+        }
+
+        if (passwordEncoder.matches(password,member.getPassword())) {
+            User user = new User();
+            user.setUsername(userNo);
+            user.setPassword(passwordEncoder.encode(password));
+            user.setMemo(memo);
+            user.setRoleid(2);
+            user.setPhone(member.getPhone());
+            user.setStatus(0);
+            user.setIsLogin(0);
+            return userMapper.insert(user);
+        } else {
+            return 3;
+        }
+    }
 
     @Override
     public String login(String username, String password) {
