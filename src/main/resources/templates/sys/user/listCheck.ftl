@@ -1,12 +1,12 @@
 <#import "/common/mepaging.ftl" as mepaging/>
 <#include "/common/header.ftl">
-<title>用户列表</title>
+<title>企业列表</title>
 </head>
 <body>
 <div class="container-fluid">
     <div class="card">
         <div class="container-fluid ">
-            <form action="/user/list" method="get">
+            <form action="/user/listCheck" method="get">
                 <div class="btn-toolbar justify-content-between me-btn-toolbar" role="toolbar"
                      aria-label="Toolbar with button groups">
                     <div class="btn-group me-button-group " role="group" aria-label="First group">
@@ -15,7 +15,7 @@
                         </div>-->
                     </div>
                     <div class="input-group">
-                        <input type="text" name="name" value="${pd.username!}" class="form-control" placeholder="企业名称"
+                        <input type="text" name="username" value="${pd.username!}" class="form-control" placeholder="企业名称"
                                aria-label="Input group example"
                                aria-describedby="btnGroupAddon2">
                         &nbsp;&nbsp;
@@ -47,24 +47,19 @@
                          <td>审核通过</td>
                     <#elseif user.status==2>
                         <td>审核未通过</td>
-                    <#else>
+                     <#else>
                         <td>已激活</td>
                     </#if>
                     <td>${user.message!}</td>
                     <td>
-                        <button type="button" class="btn btn-outline-primary btn-sm edit" data-value="${user.id!}">
-                            编辑
-                        </button>
-                        <button type="button" class="btn btn-outline-primary btn-sm delete" data-value="${user.id!}">
-                           删除
-                        </button>
-                        <#if user.status==0>
-                           <button type="button" class="btn btn-outline-primary btn-sm checkUser" data-value="${user.id!}">
-                              审核
+                    <#if user.status==1 && user.isLogin==0>
+                           <button type="button" class="btn btn-outline-primary btn-sm activation" data-value="${user.id!}">
+                               激活
                            </button>
-                        </#if>
+                    </#if>
                     </td>
                 </tr>
+
             </#list>
             </table>
         <@mepaging.paging pagingList=userList url="./list" parameterMap=pd/>
@@ -75,33 +70,18 @@
     <script type="text/javascript">
         $(function () {
 
-            $(".checkUser").click(function () {
+            $(".activation").click(function () {
                 var userid = $(this).data("value");
-                dolphin.iframe('/user/editCheck?id='+userid, '企业审核', '600px', '400px');
-            })
-
-            $(".delete").click(function () {
-                var userid = $(this).data("value");
-                if (dolphin.toInt(userid) <= 0) {
-                    dolphin.msg("请选择要删除的用户！");
-                    return;
-                }
-
-                dolphin.confirm(dolphin.confirmDel, function () {
-                    dolphin.post('/user/delete?id=' + userid, {}, function (result) {
-                        if (result.status == 1) {
-                            dolphin.alertto(result.info, location.href);
-                        } else {
-                            dolphin.alert(result.info);
-                        }
-                    })
-                })
-            })
-
-
-            $(".edit").click(function () {
-                var userid = $(this).data("value");
-                dolphin.iframe('/user/edit?id=' + userid, '用户信息', '', '');
+                dolphin.post('/user/activation?id=' + userid ,"",
+                        function (result) {
+                            if (result.status == 1) {
+                                layer.msg(result.info, {icon: 1, time: 500}, function () {
+                                    parent.location.href = parent.location.href;
+                                })
+                            } else {
+                                dolphin.alert(result.info);
+                            }
+                        })
             })
         })
     </script>

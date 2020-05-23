@@ -306,7 +306,7 @@
                     </div>
                 </div>
                 <div class="page-btn">
-                    <a href="#" class="button button-bg">免费申请</a>
+                    <a id="userRegister" class="button button-bg">免费申请</a>
                 </div>
             </div>
         </div>
@@ -1055,6 +1055,10 @@
     $(function () {
         $("#register").click(function () {
             dolphin.iframe("/register","会员注册","650px","500px")
+        })
+
+        $("#userRegister").click(function () {
+            dolphin.iframe("/sys/kh/register","企业入驻","650px","500px")
         })
 
         $(".save").click(function () {

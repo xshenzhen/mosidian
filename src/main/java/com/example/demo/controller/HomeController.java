@@ -42,6 +42,13 @@ public class HomeController extends BaseController{
         return mv;
     }
 
+    @GetMapping("/sys/kh/register")
+    public ModelAndView kh(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("sys/kehu/register");
+        return mv;
+    }
+
     @GetMapping({"/meLogin","/bcLogin"})
     public ModelAndView meLogin(){
         ModelAndView mv=new ModelAndView();
@@ -57,17 +64,31 @@ public class HomeController extends BaseController{
         return mv;
     }
 
+    @RequestMapping(value = "/index-admin",method = RequestMethod.GET)
+    public ModelAndView indexAdmin(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("index-admin");
+        return mv;
+    }
+
     @RequestMapping(value = "/index-user",method = RequestMethod.GET)
-    public ModelAndView indexTwo(){
+    public ModelAndView indexUser(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("index-user");
         return mv;
     }
 
     @RequestMapping(value = "/index-express",method = RequestMethod.GET)
-    public ModelAndView indexTre(){
+    public ModelAndView indexExpress(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("index-express");
+        return mv;
+    }
+
+    @RequestMapping(value = "/index-check",method = RequestMethod.GET)
+    public ModelAndView indexCheck(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("index-check");
         return mv;
     }
 
@@ -87,14 +108,9 @@ public class HomeController extends BaseController{
         }
         SuperUtils.addCookie(response,"Authorization","Bearer"+token,3600);
         PageData pd=this.getPageData();
-        int roleId=user.getRoleid();
-        if (roleId==1){
-            pd.put("roleId","1");
-        }else if (roleId==2){
-            pd.put("roleId","2");
-        }else {
-            pd.put("roleId","3");
-        }
+        String roleId=user.getRoleid().toString();
+        pd.put("roleId",roleId);
+        pd.put("isLogin",user.getIsLogin());
         session.setAttribute("username",user.getUsername());
         return this.success(pd,"","");
     }

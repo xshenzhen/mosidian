@@ -71,13 +71,18 @@
         var userpwd = $("#userpwd").val();
         dolphin.post('login',{username:username,password:userpwd},function(result) {
             if(result.status == '1'){
-                debugger
-                if (result.data.roleId=="1"){
-                    location.href='index-member'
-                }else if (result.data.roleId=="2") {
-                    location.href='index-user'
-                }else {
-                    location.href='index-express'
+                if (result.data.isLogin==0){
+                    location.href='index-check'
+                } else {
+                    if (result.data.roleId=="1"){
+                        location.href='index-member'
+                    }else if (result.data.roleId=="2") {
+                        location.href='index-user'
+                    }else if (result.data.roleId=="3") {
+                        location.href='index-express'
+                    }else if (result.data.roleId=="4") {
+                        location.href='index-admin'
+                    }
                 }
             }
             else{

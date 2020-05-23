@@ -93,6 +93,10 @@ public class User implements Serializable {
      * 审核状态
      */
     private Integer status;
+   /**
+     * 审核回复
+     */
+    private String message;
 
 
 }

@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.model.sys.User;
 import com.example.demo.service.sys.UserService;
+import com.example.demo.utils.Const;
 import com.example.demo.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -42,6 +43,20 @@ public class UserController extends BaseController {
         PageData pd=this.getPageData();
         pd.put("username",username);
         mv.setViewName("sys/user/list");
+        mv.addObject("userList",iPage);
+        mv.addObject("pd",pd);
+        return mv;
+    }
+
+
+    @GetMapping("/listCheck")
+    public ModelAndView listCheck(@RequestParam(name = "username",required = false) String username){
+        ModelAndView mv =new ModelAndView();
+        Page<User> page=new Page<>(this.pageIndex(),this.pageSize());
+        IPage<User> iPage = userService.listAndPage(page, username);
+        PageData pd=this.getPageData();
+        pd.put("username",username);
+        mv.setViewName("sys/user/listCheck");
         mv.addObject("userList",iPage);
         mv.addObject("pd",pd);
         return mv;
@@ -97,6 +112,50 @@ public class UserController extends BaseController {
         }else {
             return this.error("操作失败");
         }
+    }
+
+    @PostMapping("/register")
+    @ResponseBody
+    public Object register(@RequestParam("userNo") String userNo,
+                           @RequestParam("password") String password,
+                           @RequestParam("memo") String memo) {
+        int register = userService.register(userNo, password, memo);
+        if (register == 2) {
+            return this.error("该会员不存在！");
+        } else if (register == 1){
+            return this.success("申请成功，待审核！");
+        } else if (register == 0){
+            return this.error("申请失败，请稍后再试！");
+        }else {
+            return this.error("该企业已入住");
+        }
+    }
+
+    @PostMapping("/checkUserStatus")
+    @ResponseBody
+    public Object checkUserStatus(@RequestParam(name = "id") String id,
+                                  @RequestParam(name = "message") String message,
+                                  @RequestParam(name = "status") String statusType){
+        boolean status = userService.checkUserStatus(id,message,statusType);
+        return  this.getMessage(Const.UPDATETYPE,status);
+    }
+
+    @GetMapping("/editCheck")
+    @ResponseBody
+    public ModelAndView editCheck(@RequestParam(name = "id") int id){
+        ModelAndView mv=new ModelAndView();
+        User user = userService.getById(id);
+        mv.setViewName("sys/user/editCheck");
+        mv.addObject("user",user);
+        return mv;
+    }
+
+
+    @RequestMapping("/activation")
+    @ResponseBody
+    public Object activation(@RequestParam(name = "id") String id){
+        boolean activation = userService.activation(id);
+        return this.getMessage(Const.UPDATETYPE,activation);
     }
 }
 

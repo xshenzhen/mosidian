@@ -18,4 +18,10 @@ public interface UserService extends IService<User> {
     String login(String username, String password);
 
     IPage<User> listAndPage(Page<User> page,String username);
+
+    int register(String userNo,String password, String memo);
+
+    boolean checkUserStatus(String id,String message,String status);
+
+    boolean activation(String id);
 }

@@ -1,13 +1,17 @@
 package com.example.demo.service.impl.sys;
 
+import cn.hutool.core.convert.Convert;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.common.security.JwtTokenUtil;
 import com.example.demo.dao.sys.UserMapper;
+import com.example.demo.model.mms.Member;
 import com.example.demo.model.sys.User;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.service.mms.MemberService;
 import com.example.demo.service.sys.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +25,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * <p>
@@ -38,6 +44,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private UserDetailsService userDetailsService;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private MemberService memberService;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
@@ -65,8 +73,64 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public IPage<User> listAndPage(Page<User> page, String username) {
         QueryWrapper<User> wrapper=new QueryWrapper<>();
-        wrapper.eq(StrUtil.isNotEmpty(username),"username",username)
+        wrapper.like(StrUtil.isNotEmpty(username),"memo",username)
                 .eq("recordstatus",true);
         return userMapper.userList(page,wrapper);
+    }
+
+    @Override
+    public int register(String userNo, String password, String memo) {
+
+
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("no", userNo);
+        Member member = memberService.getOne(queryWrapper);
+        if (!ObjectUtil.isNotNull(member)) {
+            return 2;
+        }
+        QueryWrapper<User> wrapper=new QueryWrapper<>();
+        wrapper.eq("username",userNo);
+        User model = userMapper.selectOne(wrapper);
+        if (ObjectUtil.isNotNull(model)){
+            return 3;
+        }
+        User user = new User();
+        user.setUsername(userNo);
+        user.setPassword(passwordEncoder.encode(password));
+        user.setMemo(memo);
+        user.setRoleid(2);
+        user.setPhone(member.getPhone());
+        user.setStatus(0);
+        user.setCreatedate(new Date());
+        user.setIsLogin(0);
+        return userMapper.insert(user);
+    }
+
+    @Override
+    public boolean checkUserStatus(String id,String message,String status) {
+        User user = userMapper.selectById(id);
+        user.setStatus(Convert.toInt(status));
+        user.setMessage(message);
+        int update = userMapper.updateById(user);
+        if (update>0){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean activation(String id) {
+        User user = userMapper.selectById(id);
+        user.setIsLogin(1);
+        /**@Desc: 已激活 */
+        user.setStatus(3);
+        int flag=userMapper.updateById(user);
+        if (flag>0){
+            return true;
+        }else {
+            return false;
+        }
+
     }
 }

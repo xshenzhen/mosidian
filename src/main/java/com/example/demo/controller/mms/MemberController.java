@@ -34,7 +34,6 @@ public class MemberController extends BaseController {
     private MemberService memberService;
 
     @GetMapping("/list")
-    @PreAuthorize("hasAuthority('mms:member:read')")
     public ModelAndView list(@RequestParam(name = "name",required = false) String name){
         ModelAndView mv =new ModelAndView();
         Page<Member> page=new Page<>(this.pageIndex(),this.pageSize());
@@ -79,6 +78,7 @@ public class MemberController extends BaseController {
                          @RequestParam(name = "email",required = false) String email,
                          @RequestParam(name = "id",required = false) String ids,
                          @RequestParam(name = "address",required = false) String address,
+                         @RequestParam(name = "phone",required = false) String phone,
                          @RequestParam(name = "tell",required = false) String tell){
         Member member=new Member();
         boolean flag ;
@@ -88,6 +88,7 @@ public class MemberController extends BaseController {
             member.setBase1(email);
             member.setRecordstatus(true);
             member.setId(id);
+            member.setPhone(phone);
             member.setEditdate(new Date());
              flag = memberService.updateById(member);
         }else {
@@ -98,6 +99,7 @@ public class MemberController extends BaseController {
             member.setBase2(tell);
             member.setRecordstatus(true);
             member.setNo(maxMemberNo);
+            member.setPhone(phone);
             flag = memberService.save(member);
         }
         if (flag){
