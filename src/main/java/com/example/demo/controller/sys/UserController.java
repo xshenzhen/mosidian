@@ -44,24 +44,6 @@ public class UserController extends BaseController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping("/register")
-    public Object register(@RequestParam("userNo") String userNo,
-                           @RequestParam("password") String password,
-                           @RequestParam("memo") String memo) {
-
-        int register = userService.register(userNo, password, memo);
-        if (register == 2) {
-            return this.error("该会员不存在！");
-        } else if (register == 1){
-            return this.success("申请成功，待审核！");
-        } else if (register == 0){
-            return this.error("申请失败，请稍后再试！");
-        } else {
-            return this.error("密码错误");
-        }
-
-    }
-
     @GetMapping("/list")
     public ModelAndView list(@RequestParam(name = "username",required = false) String username){
         ModelAndView mv =new ModelAndView();
