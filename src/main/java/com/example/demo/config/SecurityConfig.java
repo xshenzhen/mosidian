@@ -54,11 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,
                         "/",
                         "/*.ftl",
-                        "/img/**/*.*",
-                        "/img/*.*",
-                        "/**/*.ftl",
-                        "/**/*.css",
-                        "/**/*.js",
+                        "/**/**/*.ftl",
                         "/swagger-resources/**",
                         "/v2/api-docs/**"
                 )

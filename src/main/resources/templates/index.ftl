@@ -1058,7 +1058,7 @@
         })
 
         $("#userRegister").click(function () {
-            dolphin.iframe("/sys/kh/register","企业入驻","650px","500px")
+            dolphin.iframe("/userRegister","企业入驻","650px","500px")
         })
 
         $(".save").click(function () {
