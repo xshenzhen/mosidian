@@ -1,9 +1,10 @@
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://www.samphanie.cn:3306/mosidian?useSSL=false
-    username: sam
-    password: Zxx131013@
+    url: jdbc:mysql://localhost:3306/mosidian?characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2b8
+    username: root
+    password: admin
   servlet:
     multipart:
       max-file-size: 100MB # 单个文件大小
