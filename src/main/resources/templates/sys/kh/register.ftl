@@ -1,63 +1,48 @@
 <#include "/common/header.ftl">
-<title>会员注册</title>
+<title>企业注册</title>
 </head>
 <body>
 <div class="container me-p-t-25">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">注册账号</h5>
+            <h5 class="card-title">企业申请流程</h5>
             <form id="form">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>会员名称：</label>
+                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>MSIC：</label>
                             <div class="col-sm-9">
-                                <input type="text" name="name"
+                                <input type="text" name="userNo"
                                        class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>手机号：</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="phone"  class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>收货地址：</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="address" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>收货联系电话：</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="tell" class="form-control">
                             </div>
                         </div>
                     </div>
 
                 </div>
-                
-              
-                
-
-               <#-- <div class="row">
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label me-t-r">个人描述：</label>
+                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>MSIC密码：</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4"
-                                          name="description">${member.description!}</textarea>
+                                <input type="text" name="password"
+                                       class="form-control">
                             </div>
                         </div>
                     </div>
-                </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label me-t-r"><span style="color: red">*</span>企业名称：</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="memo"
+                                       class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
                 <div class="me-btn-toolbar text-center">
                     <button type="button" class="btn btn-primary mr-2 save">申请</button>
                     <button type="button" class="btn btn-primary mr-2 cancel">取消</button>
@@ -68,17 +53,14 @@
 </div>
 <#include "/common/footer.ftl">
 <script type="text/javascript">
-
-
-
     $(function () {
         $(".save").click(function () {
-            dolphin.post('/member/update?id=' + "",
+            dolphin.alert("aaaaa")
+            dolphin.post('/user/register,
                     $('#form').serialize(),
                     function (result) {
                         if (result.status == 1) {
-                            debugger
-                            layer.msg(result.info, {icon: 1, time: 2000}, function () {
+                            layer.msg("申请成功", {icon: 1, time: 2000}, function () {
                                 parent.location.href = parent.location.href;
                             })
                         } else {

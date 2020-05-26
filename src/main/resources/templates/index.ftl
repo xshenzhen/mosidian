@@ -961,7 +961,7 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-angle-right"></i>行业研究</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>月/年度检测报告</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i>商家投资报告</a></li>
+                        <li><a href="#" id="outlet"><i class="fa fa-angle-right"></i>商家投资报告</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>物联网发展报告</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>区域经济发展报告</a></li>
                         <li><a href="#"><i class="fa fa-angle-right"></i>风险预警报告</a></li>
@@ -1053,6 +1053,10 @@
 
 <script type="text/javascript">
     $(function () {
+        $("#outlet").click(function () {
+            dolphin.iframe("/outlet","商家数据分析","650px","500px")
+        })
+
         $("#register").click(function () {
             dolphin.iframe("/register","会员注册","650px","500px")
         })
@@ -1062,11 +1066,11 @@
         })
 
         $(".save").click(function () {
-            dolphin.post('/contactUs/update?id=' + "",
+            dolphin.post('/contactUs/update',
                     $('#message-form').serialize(),
                     function (result) {
                         if (result.status == 1) {
-                            layer.msg("反馈成功", {icon: 1, time: 2000}, function () {
+                            layer.msg(result.info, {icon: 1, time: 2000}, function () {
                                 parent.location.href = parent.location.href;
                             })
                         } else {

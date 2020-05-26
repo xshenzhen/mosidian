@@ -1,6 +1,7 @@
 package com.example.demo.controller.sys;
 
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.model.sys.ContactUs;
@@ -66,6 +67,9 @@ public class ContactUsController extends BaseController {
                          @RequestParam(name = "phone",required = false) String phone,
                          @RequestParam(name = "feedbackMessage",required = false) String feedbackMessage){
         ContactUs contactUs=new ContactUs();
+        if (StrUtil.isEmpty(name) | StrUtil.isEmpty(email)| StrUtil.isEmpty(phone)| StrUtil.isEmpty(feedbackMessage)){
+            return this.error("信息有误，请重新填写");
+        }
         contactUs.setCreatedate(new Date());
         contactUs.setName(name);
         contactUs.setEmail(email);

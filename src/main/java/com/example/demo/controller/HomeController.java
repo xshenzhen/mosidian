@@ -35,6 +35,20 @@ public class HomeController extends BaseController{
         return mv;
     }
 
+    @GetMapping("/index")
+    public ModelAndView index(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("index-test");
+        return mv;
+    }
+
+    @GetMapping("/outlet")
+    public ModelAndView outlet(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("megaData/outlet");
+        return mv;
+    }
+
     @GetMapping("/register")
     public ModelAndView register(){
         ModelAndView mv=new ModelAndView();
@@ -65,7 +79,7 @@ public class HomeController extends BaseController{
 
 
     @RequestMapping(value = "/index-member",method = RequestMethod.GET)
-    public ModelAndView index(){
+    public ModelAndView indexMember(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("index-member");
         return mv;

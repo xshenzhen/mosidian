@@ -2,15 +2,20 @@ package com.example.demo.controller.sys;
 
 
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.demo.model.mms.Member;
 import com.example.demo.model.sys.User;
+import com.example.demo.service.mms.MemberService;
 import com.example.demo.service.sys.UserService;
 import com.example.demo.utils.Const;
 import com.example.demo.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +39,11 @@ public class UserController extends BaseController {
 
     @Autowired
     private UserService userService;
+
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @GetMapping("/list")
     public ModelAndView list(@RequestParam(name = "username",required = false) String username){

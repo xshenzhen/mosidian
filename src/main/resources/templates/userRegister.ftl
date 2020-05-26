@@ -75,7 +75,6 @@
                     $('#form').serialize(),
                     function (result) {
                         if (result.status == 1) {
-                            debugger
                             layer.msg(result.info, {icon: 1, time: 2000}, function () {
                                 parent.location.href = parent.location.href;
                             })
