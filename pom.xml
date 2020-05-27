@@ -8,9 +8,9 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>mosidian</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.mosidian.web</groupId>
+    <artifactId>mosidian-web</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <name>mosidian</name>
     <description>mosidian project for Spring Boot</description>
 

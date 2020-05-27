@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.dao.mms.MemberMapper">
+<mapper namespace="com.mosidian.web.dao.mms.MemberMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.example.demo.model.mms.Member">
+    <resultMap id="BaseResultMap" type="com.mosidian.web.model.mms.Member">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="phone" property="phone" />
@@ -33,7 +33,7 @@
     <sql id="Base_Column_List">
         id, name, phone, balance, credits, state, enable, avatar, password, label, no, userid, createdate, creater, editdate, editor, recordstatus, mid, base1, base2, base3, base4, base5
     </sql>
-    <select id="memberList" resultType="com.example.demo.model.mms.Member">
+    <select id="memberList" resultType="com.mosidian.web.model.mms.Member">
         select * from mms_member ${ew.customSqlSegment}
     </select>
 
