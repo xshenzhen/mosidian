@@ -97,16 +97,19 @@
                     <a data-scroll-nav="3" href="#">AiOS</a>
                 </li>
                 <li class="nav-item navBag1">
-                    <a data-scroll-nav="4" href="#">MEOS</a>
+                    <a href="meLogin">MEOS</a>
                 </li>
                 <li class="nav-item navBag1">
-                    <a data-scroll-nav="5" href="#">BCOS</a>
+                    <a href="bcLogin">BCOS</a>
                 </li>
                 <li class="nav-item navBag1">
-                    <a data-scroll-nav="6" href="#">TMIC</a>
+                    <a data-scroll-nav="4" href="#">ICOS</a>
                 </li>
                 <li class="nav-item navBag1">
-                    <a data-scroll-nav="7" href="#">COWE</a>
+                    <a data-scroll-nav="5" href="#">TMIC</a>
+                </li>
+                <li class="nav-item navBag1">
+                    <a data-scroll-nav="6" href="#">COWE</a>
                 </li>
                 <li class="nav-item navBag1">
                     <!--                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">-->
@@ -116,7 +119,7 @@
                        id="popup-box"
                        data-toggle="popover"
                        data-trigger="focus"><i
-                            class="iconfont icon56"></i></a>
+                                class="iconfont icon56"></i></a>
                 </li>
                 <li class="nav-item navBag2">
                     <a data-scroll-nav="10" href="#">
@@ -257,7 +260,7 @@
                     </div>
                     <div class="video_icon">
                         <a class="Video-popup" href="https://www.youtube.com/watch?v=Joz1xBi7ex8"><i
-                                class="fa fa-play"></i></a>
+                                    class="fa fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -267,8 +270,8 @@
 <!--====== 企业服务 COSE PART ENDS ======-->
 
 <!--====== ACOS 业务系统 ======-->
-<div style="background-color: #0b0b0b">
-    <div data-scroll-index="2" class="acosPC"
+<div style="background-color: #0b0b0b" data-scroll-index="2">
+    <div class="acosPC"
          style="width: 1140px;height: 900px;display:block; margin:0 auto;margin-top: 40px;}">
         <h2 style="text-align: center;color: white;padding-top: 50px">业务系统</h2>
         <p style="text-align: center;font-size: 20px;color: white">本方案提供财务、进销存、批量订货、
@@ -449,7 +452,7 @@
                 </div>
             </div>
             <div class="page-btn">
-                <a href="#" class="button button-bg">免费申请</a>
+                <a class="button button-bg" id="userRegister">免费申请</a>
             </div>
         </div>
     </div>
@@ -506,7 +509,7 @@
 <!--会员系统-->
 
 <!--====== 客户系统 BCOS ======-->
-<div class="become bg_cover pt-95 pb-100" data-overlay="5" style="background: #0b0b0b">
+<div class="become bg_cover pt-95 pb-100" style="background: #0b0b0b">
     <!--     style="background-image: url(img/bg.jpg)">-->
     <div class="container">
         <div class="row">
@@ -514,7 +517,7 @@
                 <div class="become_contant text-center">
                     <h5>与我们一起获得成功</h5>
                     <h2>是否想从今天开始增加业务量？</h2>
-                    <a href="#" class="button button-bg">成为客户</a>
+                    <a id="registerKH" class="button button-bg">成为客户</a>
                 </div>
             </div>
         </div>
@@ -522,7 +525,7 @@
 </div>
 <!--====== BECOME PART ENDS ======-->
 <!--====== 产品5 PART START ======-->
-<div class="client pb-100 pt-90" data-scroll-index="5">
+<div class="client pb-100 pt-90" >
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
@@ -628,7 +631,7 @@
 <!--====== BRAND PART ENDS ======-->
 <!--====== 保障系统 ======-->
 <!--====== 保障系统 ======-->
-<div class="row">
+<div data-scroll-index="4" class="pb-40">
     <div class="col-lg-12">
         <div class="project_menu text-center pt-60 pb-40">
             <h2>保障系统</h2>
@@ -671,109 +674,12 @@
     </div>
 </div>
 <!--====== BRAND PART ENDS ======-->
-<!-- 保障系统模态窗 -->
-<div class="modal fade" id="modalA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·APS·ICAS》</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                敬请期待
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modalB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·BPS·ICAS》</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                敬请期待
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·CPS·ICAS》</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                敬请期待
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modaldataA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·ICSE·SEID》</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                敬请期待
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modaldataB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·ICID·SEID》</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                敬请期待
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--====== BRAND PART ENDS ======-->
+
 <!--====== 团队 PART START ======-->
 <!--====== TMIC 我们的团队 ======-->
-<br>
-<div class="our_team pt-90 pb-50" data-scroll-index="6" id="abstart">
+<div data-scroll-index="5" class="our_team pt-90 pb-50" id="abstart">
     <div class="container">
-        <div class="row">
+        <div class="row" >
             <div class="col-lg-8 offset-lg-2">
                 <div class="section_title text-center">
                     <h2 class="tmic" style="color: white">TMIC</h2>
@@ -917,9 +823,10 @@
     </div>
 </div>
 
+
 <!--====== OUR TEAM PART ENDS ======-->
 <!--====== COWE 联系我们 ======-->
-<div class="contact pb-50 pt-50" data-scroll-index="7">
+<div data-scroll-index="6" class="contact pb-50 pt-50">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
@@ -933,23 +840,33 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="contact_form pt-65 text-center">
-                    <form id="contact-form" action="contact.php" method="post">
+                    <form id="contact-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="text" name="Name" placeholder="姓名">
+                                <input type="text" id="ticket" name="ticket" placeholder="票据" hidden>
                             </div>
                             <div class="col-md-6">
-                                <input type="email" name="Email" placeholder="邮箱">
+                                <input type="text" id="randstr" name="randstr" placeholder="随机串" hidden>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" name="name" placeholder="姓名">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" name="email" placeholder="邮箱">
                             </div>
                             <div class="col-md-12">
-                                <input type="text" name="Subject" placeholder="电话号码">
+                                <input type="text" name="phone" placeholder="电话号码">
                             </div>
                             <div class="col-md-12">
-                                <textarea name="message" cols="30" rows="10" placeholder="遇到的问题"></textarea>
+                                <textarea name="feedbackMessage" cols="30" rows="10" placeholder="遇到的问题"></textarea>
                             </div>
                             <p class="form-message"></p>
                             <div class="col-md-12">
-                                <button type="button" class="button button-bg mt-10">立即提交</button>
+                                <button id="TencentCaptcha"
+                                        data-appid="2026446668"
+                                        data-cbfn="callbackMessage"
+                                        type="button" class="button button-bg mt-10">立即提交
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -1118,14 +1035,14 @@
                              </li>-->
                             <li><a data-toggle="modal" data-target="#report1"><i class="fa fa-angle-right"></i>月/年度检测报告</a>
                             </li>
-                            <li><a data-toggle="modal" data-target="#report2"><i
-                                    class="fa fa-angle-right"></i>商家投资报告</a></li>
+                            <li><a id="outlet"><i
+                                            class="fa fa-angle-right"></i>商家投资报告</a></li>
                             <li><a data-toggle="modal" data-target="#report3"><i
-                                    class="fa fa-angle-right"></i>物联网发展报告</a></li>
+                                            class="fa fa-angle-right"></i>物联网发展报告</a></li>
                             <li><a data-toggle="modal" data-target="#report4"><i class="fa fa-angle-right"></i>区域经济发展报告</a>
                             </li>
                             <li><a data-toggle="modal" data-target="#report5"><i
-                                    class="fa fa-angle-right"></i>风险预警报告</a></li>
+                                            class="fa fa-angle-right"></i>风险预警报告</a></li>
                             <!--<li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>咨询平台报告</a></li>-->
                         </ul>
                     </div>
@@ -1326,7 +1243,7 @@
                             <li><a data-toggle="modal" data-target="#serve4"><i class="fa fa-angle-right"></i>服务案例</a>
                             </li>
                             <li><a data-toggle="modal" data-target="#serve5"><i
-                                    class="fa fa-angle-right"></i>聆听.建议反馈</a></li>
+                                            class="fa fa-angle-right"></i>聆听.建议反馈</a></li>
                             <!--<li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>客户分享</a></li>-->
                         </ul>
                     </div>
@@ -1450,16 +1367,16 @@
                                    data-target=".bs-mosidian-modal-lg"><i class="fa fa-angle-right"></i>公司简介</a>
                             </li>
                             <!--<li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>首页</a></li>-->
-                            <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>会员系统</a>
+                            <li><a id="meLogin"><i class="fa fa-angle-right"></i>会员系统</a>
                             </li>
                             <li><a data-toggle="modal" data-target="#exampleModal" href="#"><i
-                                    class="fa fa-angle-right"></i>客户案例</a>
+                                            class="fa fa-angle-right"></i>客户案例</a>
                             </li>
                             <li><a data-toggle="modal" data-target="#exampleModalScrollable" href="#"><i
-                                    class="fa fa-angle-right"></i>我的团队</a>
+                                            class="fa fa-angle-right"></i>我的团队</a>
                             </li>
                             <li><a data-toggle="modal" data-target="#exampleMod" href="#"><i
-                                    class="fa fa-angle-right"></i>联系我们</a>
+                                            class="fa fa-angle-right"></i>联系我们</a>
                             </li>
                         </ul>
                     </div>
@@ -1550,20 +1467,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--<li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>企业服务</a>
-                    </li>
-                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>业务系统</a>
-                    </li>
-                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>招商系统</a>
-                    </li>
-                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>会员系统</a>
-                    </li>
-                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>客户系统</a>
-                    </li>
-                    <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-angle-right"></i>我的团队</a>
-                    </li>-->
-                    </ul>
                 </div>
             </div>
         </div>
@@ -1590,6 +1493,103 @@
     </div>
 </div>
 <!--====== FOOTER PART ENDS ======-->
+
+<!-- 保障系统模态窗 -->
+<div class="modal fade" id="modalA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·APS·ICAS》</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                敬请期待
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·BPS·ICAS》</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                敬请期待
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·CPS·ICAS》</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                敬请期待
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modaldataA" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·ICSE·SEID》</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                敬请期待
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modaldataB" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">《上海莫斯蒂恩网络科技有限公司·ICID·SEID》</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                敬请期待
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--=======公司价值观modal======-->
 <div class="modal fade bs-mosidian-modal-lg" id="valueModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -1901,34 +1901,50 @@
 <script src="js/script.js"></script>
 <script src="layui/lay/modules/layer.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/dolphin.js"></script>
+<script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 </body>
 <script type="text/javascript">
     $(function () {
         $("#outlet").click(function () {
-            dolphin.iframe("/outlet", "商家数据分析", "650px", "500px")
+            dolphin.iframe("/sys/megaData/outlet", "商家数据分析")
         })
 
         $("#register").click(function () {
-            dolphin.iframe("/register", "会员注册", "650px", "500px")
+            dolphin.iframe("/register", "会员注册", "750px", "600px")
+        })
+        $("#registerKH").click(function () {
+            dolphin.iframe("/register", "会员注册", "750px", "600px")
         })
 
         $("#userRegister").click(function () {
             dolphin.iframe("/sys/kh/register", "企业入驻", "650px", "500px")
         })
 
-        $(".save").click(function () {
-            dolphin.post('/contactUs/update?id=' + "",
-                $('#message-form').serialize(),
-                function (result) {
-                    if (result.status == 1) {
-                        layer.msg("反馈成功", {icon: 1, time: 2000}, function () {
-                            parent.location.href = parent.location.href;
-                        })
-                    } else {
-                        dolphin.alert(result.info);
-                    }
-                })
-        })
+        window.showCard = function () {
+            dolphin.iframe("/sys/user/card", "会员卡", "500px", "600px")
+        }
+
+        window.callbackMessage = function (res) {
+            console.log(res)
+            // res（用户主动关闭验证码）= {ret: 2, ticket: null}
+            // res（验证成功） = {ret: 0, ticket: "String", randstr: "String"}
+            if (res.ret === 0) {
+                // alert(res.ticket)   // 票据
+                $("ticket").val(res.ticket)
+                $("randstr").val(res.randstr)
+                dolphin.post('/api/contactUs/update',
+                    $('#contact-form').serialize(),
+                    function (result) {
+                        if (result.status == 1) {
+                            layer.msg(result.info, {icon: 1, time: 2000}, function () {
+                                $('#contact-form')[0].reset()
+                            })
+                        } else {
+                            dolphin.alert(result.info);
+                        }
+                    })
+            }
+        }
     })
 </script>
 </html>

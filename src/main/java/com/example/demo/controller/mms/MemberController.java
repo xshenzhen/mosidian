@@ -90,7 +90,7 @@ public class MemberController extends BaseController {
             member.setId(id);
             member.setPhone(phone);
             member.setEditdate(new Date());
-             flag = memberService.updateById(member);
+            flag = memberService.updateById(member);
         }else {
             String maxMemberNo = memberService.getMaxMemberNo();
             member.setCreatedate(new Date());

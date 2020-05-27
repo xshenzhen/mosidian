@@ -42,12 +42,21 @@ public class HomeController extends BaseController{
         return mv;
     }
 
-    @GetMapping("/outlet")
+    @GetMapping("/sys/megaData/outlet")
     public ModelAndView outlet(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("megaData/outlet");
+        mv.setViewName("sys/megaData/outlet");
         return mv;
     }
+
+    @GetMapping("/sys/user/card")
+    public ModelAndView meCard(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("sys/user/card");
+        return mv;
+    }
+
+
 
     @GetMapping("/register")
     public ModelAndView register(){
@@ -63,10 +72,17 @@ public class HomeController extends BaseController{
         return mv;
     }
 
-    @GetMapping({"/meLogin","/bcLogin"})
+    @GetMapping("/bcLogin")
+    public ModelAndView bcLogin(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("sys/login/bcLogin");
+        return mv;
+    }
+
+    @GetMapping("/meLogin")
     public ModelAndView meLogin(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("login");
+        mv.setViewName("sys/login/meLogin");
         return mv;
     }
 
