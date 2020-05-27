@@ -44,6 +44,7 @@ public class UserController extends BaseController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
     @GetMapping("/list")
     public ModelAndView list(@RequestParam(name = "username",required = false) String username){
         ModelAndView mv =new ModelAndView();

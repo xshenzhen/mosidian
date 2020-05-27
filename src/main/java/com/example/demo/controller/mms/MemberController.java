@@ -94,6 +94,9 @@ public class MemberController extends BaseController {
         }else {
             String maxMemberNo = memberService.getMaxMemberNo();
             member.setCreatedate(new Date());
+            if (StrUtil.isEmpty(name) | StrUtil.isEmpty(address)| StrUtil.isEmpty(tell)| StrUtil.isEmpty(phone)){
+                return this.error("信息有误，请重新填写");
+            }
             member.setName(name);
             member.setBase1(address);
             member.setBase2(tell);

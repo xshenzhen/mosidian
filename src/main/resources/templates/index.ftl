@@ -1062,15 +1062,15 @@
         })
 
         $("#userRegister").click(function () {
-            dolphin.iframe("/sys/kh/register","企业入驻","650px","500px")
+            dolphin.iframe("/userRegister","企业入驻","650px","500px")
         })
 
         $(".save").click(function () {
-            dolphin.post('/contactUs/update?id=' + "",
+            dolphin.post('/contactUs/update',
                     $('#message-form').serialize(),
                     function (result) {
                         if (result.status == 1) {
-                            layer.msg("反馈成功", {icon: 1, time: 2000}, function () {
+                            layer.msg(result.info, {icon: 1, time: 2000}, function () {
                                 parent.location.href = parent.location.href;
                             })
                         } else {
