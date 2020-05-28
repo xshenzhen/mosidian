@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.103.64.74:3306/mosidian
+    url: jdbc:mysql://47.103.64.74:3306/mosidian?useSSL=false
     username: mosidian
     password: 2020mosiDian@
   servlet:
